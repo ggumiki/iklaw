@@ -1,0 +1,11 @@
+{
+  "name": "seosang-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "법무법인 서상 홈페이지 (외부 패키지 없는 정적 사이트)",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js --serve"
+  },
+  "engines": { "node": ">=18" }
+}

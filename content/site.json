@@ -1,0 +1,87 @@
+{
+  "name": "법무법인 서상",
+  "alternateNames": ["서상", "Seosang Law Firm", "법무법인 서상 남양주분사무소"],
+  "brandMark": "서상",
+  "tagline": "남양주·서울·인천 변호사",
+  "url": "https://www.ssnyj.co.kr",
+  "description": "법무법인 서상은 2011년 개업해 2017년 법인으로 전환한 법무법인으로, 서울 서초 주사무소와 남양주(다산신도시)·인천 분사무소에서 민사·부동산, 형사, 이혼·가사, 기업, 행정, 공공조달 사건을 맡고 있습니다.",
+  "heroPlace": "의정부지방법원 남양주지원 앞, 다산 중앙법조타워",
+  "heroTitle": "달콤한 희망 대신, 솔직한 답을 드립니다.",
+  "heroLede": "사건의 유리한 점과 불리한 점을 처음부터 숨김없이 말씀드립니다. 그래야 의뢰인이 가장 현실적인 선택을 할 수 있기 때문입니다.",
+  "practiceIntro": "부동산 분쟁부터 형사, 가사, 기업, 행정, 공공조달까지 각 분야를 맡아 온 변호사가 직접 사건을 검토합니다.",
+  "consultNote": "처음 상담에서는 지금 상황에서 가능한 선택지와 예상되는 절차, 기간을 솔직하게 설명드립니다.",
+  "phone": "1544-5107",
+  "email": "sslaw4995@gmail.com",
+  "naverBooking": "https://naver.me/5b0YhxpX",
+  "hours": {
+    "label": "평일 09:00~18:00 (주말·공휴일 휴무)",
+    "opens": "09:00",
+    "closes": "18:00"
+  },
+  "ceo": "박준용",
+  "adResponsible": "박준용",
+  "businessNumber": "615-85-37378",
+  "foundingDate": "2011-11",
+  "logo": "/favicon.svg",
+  "ogImage": "/images/og.png",
+  "areaServed": ["남양주시", "구리시", "서울특별시", "인천광역시", "경기도"],
+  "sameAs": [],
+  "verification": {
+    "naver": "",
+    "google": ""
+  },
+  "form": {
+    "endpoint": ""
+  },
+  "offices": [
+    {
+      "id": "namyangju",
+      "name": "남양주 분사무소",
+      "address": "경기도 남양주시 다산중앙로82번안길 152, 305호 (다산동, 중앙법조타워)",
+      "street": "다산중앙로82번안길 152, 305호 (중앙법조타워)",
+      "locality": "남양주시",
+      "region": "경기도",
+      "postalCode": "",
+      "note": "의정부지방법원 남양주지원 인근",
+      "directions": "의정부지방법원 남양주지원 가까이에 있는 중앙법조타워 3층입니다.",
+      "areaServed": ["남양주시", "구리시", "가평군"],
+      "lat": "",
+      "lng": ""
+    },
+    {
+      "id": "seoul",
+      "name": "서울 주사무소",
+      "main": true,
+      "address": "서울특별시 서초구 서초중앙로18길 35, 2층 (씨앤씨빌딩)",
+      "street": "서초중앙로18길 35, 2층 (씨앤씨빌딩)",
+      "locality": "서초구",
+      "region": "서울특별시",
+      "postalCode": "",
+      "note": "",
+      "directions": "",
+      "areaServed": ["서울특별시"],
+      "lat": "",
+      "lng": ""
+    },
+    {
+      "id": "incheon",
+      "name": "인천 분사무소",
+      "address": "인천광역시 남동구 포구로 64-5, 2층 (효산빌딩)",
+      "street": "포구로 64-5, 2층 (효산빌딩)",
+      "locality": "남동구",
+      "region": "인천광역시",
+      "postalCode": "",
+      "note": "",
+      "directions": "",
+      "areaServed": ["인천광역시"],
+      "lat": "",
+      "lng": ""
+    }
+  ],
+  "history": [
+    { "when": "2011년 11월", "what": "법률사무소 서상 개업" },
+    { "when": "2017년 12월", "what": "법무법인 서상으로 법인 전환" },
+    { "when": "2011~2021년", "what": "서울 주사무소·인천 분사무소 확장 이전, 누적 법률상담 2만 건" },
+    { "when": "2021년 4월", "what": "남양주 분사무소 개소 (다산신도시)" }
+  ]
+}

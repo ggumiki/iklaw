@@ -1,0 +1,189 @@
+# 웹 관리자 화면(Decap CMS) 설정
+# 아래 repo 값을 실제 GitHub 저장소 이름(계정/저장소)으로 바꿔 주세요.
+backend:
+  name: github
+  repo: OWNER/seosang-site
+  branch: main
+
+locale: ko
+site_url: https://www.ssnyj.co.kr
+display_url: https://www.ssnyj.co.kr
+media_folder: public/images
+public_folder: /images
+slug:
+  encoding: unicode
+  clean_accents: false
+
+collections:
+  - name: columns
+    label: 법률칼럼
+    label_singular: 칼럼
+    folder: content/columns
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{date}} · {{title}}"
+    sortable_fields: [date, title]
+    fields:
+      - { label: "제목 (검색될 질문이나 핵심어를 넣어 주세요)", name: title, widget: string }
+      - { label: "주소용 영문 이름 (예: eviction-process)", name: slug, widget: string, pattern: ["^[a-z0-9-]+$", "영문 소문자, 숫자, - 만 쓸 수 있습니다"], hint: "페이지 주소가 됩니다. 한 번 게시한 뒤에는 바꾸지 마세요." }
+      - { label: 작성일, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: 수정일, name: updated, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: 작성 변호사, name: author, widget: relation, collection: lawyers, value_field: "{{slug}}", search_fields: [name], display_fields: ["{{name}} {{title}}"] }
+      - { label: 업무분야, name: category, widget: relation, collection: practice, value_field: "{{slug}}", search_fields: [title], display_fields: [title] }
+      - { label: "요약 (2~3문장, AI가 가장 먼저 인용하는 부분)", name: summary, widget: text }
+      - { label: 핵심 요약 항목, name: keyPoints, widget: list, required: false, field: { label: 항목, name: item, widget: string } }
+      - { label: 검색 키워드, name: keywords, widget: list, required: false }
+      - { label: "근거 법령 (예: 민법 제640조 (차임연체와 해지))", name: laws, widget: list, required: false, field: { label: 법령, name: law, widget: string } }
+      - { label: 함께 보여줄 FAQ, name: relatedFaq, widget: relation, collection: faq, value_field: "{{slug}}", search_fields: [title], display_fields: [title], multiple: true, required: false }
+      - { label: 임시저장 (체크하면 사이트에 안 보임), name: draft, widget: boolean, default: false, required: false }
+      - { label: 본문, name: body, widget: markdown }
+
+  - name: faq
+    label: 자주 묻는 질문
+    label_singular: 질문
+    folder: content/faq
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{title}}"
+    fields:
+      - { label: "질문 (의뢰인이 실제로 묻는 말투로)", name: title, widget: string }
+      - { label: "주소용 영문 이름", name: slug, widget: string, pattern: ["^[a-z0-9-]+$", "영문 소문자, 숫자, - 만 쓸 수 있습니다"], hint: "페이지 주소가 됩니다. 한 번 게시한 뒤에는 바꾸지 마세요." }
+      - { label: 분야, name: category, widget: relation, collection: practice, value_field: "{{slug}}", search_fields: [title], display_fields: [title], hint: "상담 절차 같은 일반 안내 질문이면 비워 두세요.", required: false }
+      - { label: 답변 변호사, name: author, widget: relation, collection: lawyers, value_field: "{{slug}}", search_fields: [name], display_fields: ["{{name}} {{title}}"], required: false }
+      - { label: "짧은 답 (첫 문장에 결론)", name: summary, widget: text }
+      - { label: 근거 법령, name: laws, widget: list, required: false, field: { label: 법령, name: law, widget: string } }
+      - { label: 홈 화면에 표시, name: featured, widget: boolean, default: false, required: false }
+      - { label: 순서, name: order, widget: number, default: 10, value_type: int }
+      - { label: 작성일, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: 수정일, name: updated, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: 임시저장, name: draft, widget: boolean, default: false, required: false }
+      - { label: 자세한 답변, name: body, widget: markdown }
+
+  - name: practice
+    label: 업무분야
+    label_singular: 업무분야
+    folder: content/practice
+    create: true
+    slug: "{{fields.slug}}"
+    fields:
+      - { label: 분야 이름, name: title, widget: string }
+      - { label: "주소용 영문 이름", name: slug, widget: string, pattern: ["^[a-z0-9-]+$", "영문 소문자, 숫자, - 만 쓸 수 있습니다"], hint: "페이지 주소가 됩니다. 한 번 게시한 뒤에는 바꾸지 마세요." }
+      - { label: 순서, name: order, widget: number, value_type: int }
+      - { label: 요약, name: summary, widget: text }
+      - { label: 검색 결과 설명문, name: description, widget: text, required: false }
+      - { label: 다루는 사건, name: cases, widget: list, field: { label: 사건, name: case, widget: string } }
+      - { label: 수정일, name: updated, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: 본문, name: body, widget: markdown }
+
+  - name: lawyers
+    label: 변호사
+    label_singular: 변호사
+    folder: content/lawyers
+    create: true
+    slug: "{{fields.slug}}"
+    summary: "{{name}} {{title}}"
+    fields:
+      - { label: 이름, name: name, widget: string }
+      - { label: "주소용 영문 이름", name: slug, widget: string, pattern: ["^[a-z0-9-]+$", "영문 소문자, 숫자, - 만 쓸 수 있습니다"], hint: "페이지 주소가 됩니다. 한 번 게시한 뒤에는 바꾸지 마세요." }
+      - { label: 직함, name: title, widget: string }
+      - { label: 순서, name: order, widget: number, value_type: int }
+      - { label: 사무소, name: office, widget: select, options: [{ label: 남양주 분사무소, value: namyangju }, { label: 서울 주사무소, value: seoul }, { label: 인천 분사무소, value: incheon }] }
+      - { label: 사진, name: photo, widget: image, required: false, hint: "세로 4:5 비율 권장" }
+      - { label: 인사말 한 줄, name: quote, widget: string, required: false }
+      - { label: 소개 요약, name: summary, widget: text }
+      - { label: "대한변협 등록 전문분야 (등록된 분야만)", name: specialties, widget: list, required: false }
+      - { label: 담당 업무분야, name: areas, widget: relation, collection: practice, value_field: "{{slug}}", search_fields: [title], display_fields: [title], multiple: true }
+      - { label: 학력, name: education, widget: list, required: false }
+      - { label: 경력, name: career, widget: list, required: false }
+      - { label: 주요 업무, name: work, widget: list, required: false }
+      - { label: 주요 자문사, name: clients, widget: list, required: false }
+      - { label: 수정일, name: updated, widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+      - { label: 추가 소개글, name: body, widget: markdown, required: false }
+
+  - name: pages
+    label: 기본 페이지
+    files:
+      - label: 법인 소개
+        name: about
+        file: content/pages/about.md
+        fields:
+          - { label: 제목, name: title, widget: string }
+          - { label: 요약, name: summary, widget: text }
+          - { label: 검색 결과 설명문, name: description, widget: text }
+          - { label: 본문, name: body, widget: markdown }
+      - label: 개인정보처리방침
+        name: privacy
+        file: content/pages/privacy.md
+        fields:
+          - { label: 제목, name: title, widget: string }
+          - { label: 본문, name: body, widget: markdown }
+      - label: 면책공고
+        name: disclaimer
+        file: content/pages/disclaimer.md
+        fields:
+          - { label: 제목, name: title, widget: string }
+          - { label: 본문, name: body, widget: markdown }
+
+  - name: settings
+    label: 사이트 기본 정보
+    files:
+      - label: 연락처 · 사무소 · 문구
+        name: site
+        file: content/site.json
+        fields:
+          - { label: 법인명, name: name, widget: string }
+          - { label: 사이트 주소, name: url, widget: string }
+          - { label: 검색 결과 설명문 (법인 소개 한 문단), name: description, widget: text }
+          - { label: 홈 큰 제목, name: heroTitle, widget: string }
+          - { label: 홈 설명문, name: heroLede, widget: text }
+          - { label: 홈 위치 문구, name: heroPlace, widget: string }
+          - { label: 업무분야 소개 문구, name: practiceIntro, widget: text }
+          - { label: 상담 안내 문구, name: consultNote, widget: text }
+          - { label: 대표 전화, name: phone, widget: string }
+          - { label: 이메일, name: email, widget: string }
+          - { label: 네이버 예약 주소, name: naverBooking, widget: string, required: false }
+          - label: 상담 시간
+            name: hours
+            widget: object
+            fields:
+              - { label: 표시 문구, name: label, widget: string }
+              - { label: 시작, name: opens, widget: string }
+              - { label: 종료, name: closes, widget: string }
+          - { label: 대표변호사, name: ceo, widget: string }
+          - { label: 광고책임변호사, name: adResponsible, widget: string }
+          - { label: 사업자등록번호, name: businessNumber, widget: string }
+          - label: 사무소
+            name: offices
+            widget: list
+            fields:
+              - { label: "아이디 (영문, 변경 주의)", name: id, widget: string }
+              - { label: 이름, name: name, widget: string }
+              - { label: 주사무소, name: main, widget: boolean, required: false }
+              - { label: 전체 주소, name: address, widget: string }
+              - { label: 도로명 이하 주소, name: street, widget: string }
+              - { label: 시·군·구, name: locality, widget: string }
+              - { label: 시·도, name: region, widget: string }
+              - { label: 우편번호, name: postalCode, widget: string, required: false }
+              - { label: 짧은 메모, name: note, widget: string, required: false }
+              - { label: 찾아오는 길, name: directions, widget: text, required: false }
+              - { label: 관할 지역, name: areaServed, widget: list, required: false }
+              - { label: 위도, name: lat, widget: string, required: false }
+              - { label: 경도, name: lng, widget: string, required: false }
+          - label: 연혁
+            name: history
+            widget: list
+            fields:
+              - { label: 시기, name: when, widget: string }
+              - { label: 내용, name: what, widget: string }
+          - label: 검색엔진 소유확인 코드
+            name: verification
+            widget: object
+            fields:
+              - { label: 네이버 서치어드바이저, name: naver, widget: string, required: false }
+              - { label: 구글 서치콘솔, name: google, widget: string, required: false }
+          - label: 상담 신청서
+            name: form
+            widget: object
+            fields:
+              - { label: "외부 접수 주소 (Netlify를 쓰면 비워 두세요)", name: endpoint, widget: string, required: false }
+          - { label: 관련 SNS·블로그 주소, name: sameAs, widget: list, required: false }
