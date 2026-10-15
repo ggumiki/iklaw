@@ -12,7 +12,9 @@
 | `content/columns/` | 법률칼럼 1편당 파일 1개 |
 | `content/faq/` | 질문 1개당 파일 1개 (질문마다 주소가 따로 생김) |
 | `content/pages/` | 소개, 개인정보처리방침, 면책공고 |
-| `public/images/` | 사진·이미지 (`og.png`는 카카오톡·SNS 공유 이미지) |
+| `public/images/` | 로고(`logo-navy.png`, `logo-white.png`), 아이콘, 공유 이미지(`og.png`), 대표변호사 서명 |
+| `public/images/lawyers/` | 변호사 사진 (투명 배경, 4:5) |
+| `public/images/office/` | 사무소 사진과 약도 |
 | `public/admin/` | 웹 관리자 화면 설정 |
 | `src/styles.css` | 디자인 (맨 위 색상 값만 바꿔도 전체 색이 바뀜) |
 | `build.js` | 사이트를 만드는 스크립트 (보통은 고칠 일 없음) |
@@ -52,7 +54,9 @@ relatedFaq:
 - `draft: true` 를 넣으면 사이트에 나타나지 않습니다.
 - 잘못된 이름을 쓰면 빌드할 때 경고가 나옵니다.
 
-변호사 사진은 `public/images/lawyers/` 에 넣고 변호사 파일의 `photo:` 에 `/images/lawyers/파일이름.jpg` 를 적으면 됩니다. 사진이 없으면 성의 첫 글자로 표시됩니다.
+변호사 사진은 `public/images/lawyers/` 에 넣고 변호사 파일의 `photo:` 에 `/images/lawyers/파일이름.webp` 를 적으면 됩니다. 배경이 투명한 사진이면 사이트 색에 맞는 옅은 남색 바탕이 자동으로 깔립니다. 사진이 없으면 성의 첫 글자로 표시됩니다 (현재 손성필 변호사).
+
+로고, 소개 페이지 사진, 홈의 '일하는 방식' 사진, 약도는 `content/site.json` 의 해당 항목(또는 관리자 화면의 '사이트 기본 정보')에서 바꿉니다.
 
 ## 내 컴퓨터에서 미리보기
 
@@ -71,7 +75,7 @@ node build.js --serve
 3. Netlify(netlify.com)에서 GitHub 저장소를 연결합니다. 빌드 설정은 `netlify.toml` 에 있어 따로 입력할 것이 없습니다.
 4. **상담 신청서 알림**: Netlify 사이트 설정의 Forms에서 `consult` 폼에 이메일 알림을 추가합니다 (예: sslaw4995@gmail.com). 신청이 들어오면 메일로 옵니다.
 5. **웹 관리자 로그인**: GitHub에서 OAuth App을 만들고 (콜백 주소 `https://api.netlify.com/auth/done`), 발급받은 Client ID·Secret을 Netlify 사이트 설정의 OAuth 항목에 GitHub 공급자로 등록합니다.
-6. **도메인**: Netlify에 `www.ssnyj.co.kr` 을 연결하고, 도메인 업체에서 DNS를 Netlify로 바꿉니다. 다른 도메인을 쓰면 `content/site.json` 의 `url` 과 `config.yml` 의 `site_url` 도 함께 바꿉니다.
+6. **도메인**: Netlify에 `www.iklaw.kr` 을 연결하고, 도메인 업체에서 DNS를 Netlify로 바꿉니다. 다른 도메인을 쓰면 `content/site.json` 의 `url` 과 `config.yml` 의 `site_url` 도 함께 바꿉니다.
 
 Netlify 대신 다른 접수 서비스(예: Formspree)를 쓰려면 `content/site.json` 의 `form.endpoint` 에 그 주소를 넣으면 됩니다.
 

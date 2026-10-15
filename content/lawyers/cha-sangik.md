@@ -13,7 +13,7 @@ areas:
   - criminal
   - corporate
   - administrative
-photo: 
+photo: /images/lawyers/cha-sangik.webp
 education:
   - 성균관대학교 법학전문대학원
   - 포항공과대학교 대학원 (컴퓨터공학과)

@@ -2,12 +2,12 @@
 # 아래 repo 값을 실제 GitHub 저장소 이름(계정/저장소)으로 바꿔 주세요.
 backend:
   name: github
-  repo: iklaw/seosang-site
+  repo: OWNER/seosang-site
   branch: main
 
 locale: ko
-site_url: https://www.ssnyj.co.kr
-display_url: https://www.ssnyj.co.kr
+site_url: https://www.iklaw.kr
+display_url: https://www.iklaw.kr
 media_folder: public/images
 public_folder: /images
 slug:
@@ -132,6 +132,32 @@ collections:
         file: content/site.json
         fields:
           - { label: 법인명, name: name, widget: string }
+          - { label: "로고 (밝은 바탕용, 머리말)", name: logo, widget: image }
+          - { label: "로고 (어두운 바탕용, 바닥글)", name: logoWhite, widget: image }
+          - { label: "공유 이미지 (카카오톡·SNS 미리보기, 1200x630)", name: ogImage, widget: image }
+          - { label: 대표변호사 서명 이미지, name: signature, widget: image, required: false }
+          - { label: 사무소 위치 지도 (홈), name: officesMap, widget: image, required: false }
+          - label: 소개 페이지 사진
+            name: aboutPhotos
+            widget: list
+            required: false
+            fields:
+              - { label: 사진, name: src, widget: image }
+              - { label: 사진 설명, name: alt, widget: string }
+          - label: 홈 '일하는 방식' 영역
+            name: homeStory
+            widget: object
+            required: false
+            fields:
+              - { label: 제목, name: title, widget: string }
+              - { label: 사진, name: image, widget: image }
+              - { label: 사진 설명, name: imageAlt, widget: string }
+              - label: 항목
+                name: points
+                widget: list
+                fields:
+                  - { label: 소제목, name: title, widget: string }
+                  - { label: 내용, name: text, widget: text }
           - { label: 사이트 주소, name: url, widget: string }
           - { label: 검색 결과 설명문 (법인 소개 한 문단), name: description, widget: text }
           - { label: 홈 큰 제목, name: heroTitle, widget: string }
@@ -169,6 +195,7 @@ collections:
               - { label: 관할 지역, name: areaServed, widget: list, required: false }
               - { label: 위도, name: lat, widget: string, required: false }
               - { label: 경도, name: lng, widget: string, required: false }
+              - { label: 약도 이미지, name: image, widget: image, required: false }
           - label: 연혁
             name: history
             widget: list

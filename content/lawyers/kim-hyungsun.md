@@ -11,7 +11,7 @@ areas:
   - family
   - administrative
   - corporate
-photo: 
+photo: /images/lawyers/kim-hyungsun.webp
 education:
   - 2012 한양대학교 법학전문대학원 졸업
   - 2005 서울대학교 외교학과 졸업

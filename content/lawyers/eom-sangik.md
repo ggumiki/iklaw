@@ -8,7 +8,7 @@ summary: 서울 주사무소 고문변호사입니다. 1982년 사법시험에 �
 specialties: []
 areas:
   - criminal
-photo: 
+photo: /images/lawyers/eom-sangik.webp
 education:
   - 고려대학교 법과대학
   - 경기고등학교

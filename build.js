@@ -387,8 +387,10 @@ ${noindex ? '<meta name="robots" content="noindex">' : '<meta name="robots" cont
 <meta property="og:locale" content="ko_KR">
 <meta name="twitter:card" content="summary_large_image">
 ${verify}
-<meta name="theme-color" content="#24493D">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#09215E">
+<link rel="icon" href="/images/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/images/favicon-48.png" sizes="48x48" type="image/png">
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 ${mdAlt ? `<link rel="alternate" type="text/markdown" href="${mdAlt}" title="이 페이지의 마크다운 원문">` : ''}
 <link rel="alternate" type="text/plain" href="/llms.txt" title="AI용 사이트 안내">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -401,7 +403,7 @@ ${mdAlt ? `<link rel="alternate" type="text/markdown" href="${mdAlt}" title="이
 <a class="skip" href="#main">본문 바로가기</a>
 <header class="site-header">
   <div class="wrap header-inner">
-    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true">${esc(site.brandMark || '서상')}</span><span class="brand-name">${esc(site.name)}</span></a>
+    <a class="brand" href="/"><img src="${esc(site.logo)}" alt="${esc(site.name)}" width="164" height="32"></a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">메뉴</button>
     <nav id="site-nav" class="site-nav" aria-label="주 메뉴">${navHtml}<a class="nav-call" href="${telHref}">${esc(site.phone)}</a></nav>
   </div>
@@ -413,7 +415,7 @@ ${body}
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div>
-      <p class="footer-name">${esc(site.name)}</p>
+      <p class="footer-logo"><img src="${esc(site.logoWhite)}" alt="${esc(site.name)}" width="164" height="32" loading="lazy"></p>
       <p>상담 전화 <a href="${telHref}">${esc(site.phone)}</a><br>${esc(site.hours.label)}</p>
       <p>이메일 <a href="mailto:${esc(site.email)}">${esc(site.email)}</a></p>
     </div>
@@ -564,6 +566,17 @@ function emit(urlPath, html, lastmod) {
   </div>
 </section>
 
+${site.homeStory ? `<section class="section story">
+  <div class="wrap story-grid">
+    <figure class="story-photo"><img src="${esc(site.homeStory.image)}" alt="${esc(site.homeStory.imageAlt)}" loading="lazy" width="708" height="550"></figure>
+    <div>
+      <h2>${esc(site.homeStory.title)}</h2>
+      ${site.homeStory.points.map(p => `<h3>${esc(p.title)}</h3><p>${esc(p.text)}</p>`).join('')}
+      <a class="more" href="/about/">서상 소개 더 보기</a>
+    </div>
+  </div>
+</section>` : ''}
+
 ${columns.length ? `<section class="section">
   <div class="wrap">
     <div class="section-head">
@@ -577,7 +590,8 @@ ${columns.length ? `<section class="section">
 
 <section class="section section-tint">
   <div class="wrap">
-    <div class="section-head"><h2>사무소 안내</h2></div>
+    <div class="section-head"><h2>사무소 안내</h2><p>서울 서초, 남양주 다산, 인천 남동 세 곳에서 상담합니다.</p></div>
+    ${site.officesMap ? `<figure class="offices-map"><img src="${esc(site.officesMap)}" alt="서울·남양주·인천 사무소 위치를 표시한 지도" loading="lazy" width="708" height="422"></figure>` : ''}
     <ul class="office-list">
       ${site.offices.map(o => `<li class="office">
         <h3>${esc(o.name)}</h3>
@@ -602,7 +616,9 @@ ${consultBand()}`;
     <h1>${esc(p.data.title)}</h1>
     ${p.data.summary ? `<p class="summary-box"><strong>요약</strong> ${inline(p.data.summary)}</p>` : ''}
   </header>
+  ${asList(site.aboutPhotos).length ? `<div class="about-photos">${asList(site.aboutPhotos).map((ph, i) => `<figure class="about-photo about-photo-${i}"><img src="${esc(ph.src)}" alt="${esc(ph.alt)}" loading="${i ? 'lazy' : 'eager'}"></figure>`).join('')}</div>` : ''}
   <div class="prose">${p.html}</div>
+  ${site.signature ? `<p class="signature"><img src="${esc(site.signature)}" alt="대표변호사 ${esc(site.ceo)}" width="221" height="48" loading="lazy"></p>` : ''}
   <section class="timeline-wrap">
     <h2>걸어온 길</h2>
     <ol class="timeline">${site.history.map(h => `<li><span class="when">${esc(h.when)}</span><span class="what">${esc(h.what)}</span></li>`).join('')}</ol>
@@ -869,6 +885,7 @@ ${consultBand()}`;
     <h2>사무소 위치</h2>
     <ul class="office-list">
       ${site.offices.map(o => `<li class="office" id="${o.id}">
+        ${o.image ? `<img class="office-map" src="${esc(o.image)}" alt="${esc(o.name)} 주변 약도" loading="lazy" width="707" height="422">` : ''}
         <h3>${esc(o.name)}</h3>
         <p>${esc(o.address)}</p>
         ${o.directions ? `<p class="office-note">${esc(o.directions)}</p>` : ''}

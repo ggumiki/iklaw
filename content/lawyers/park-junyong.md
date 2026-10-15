@@ -13,7 +13,7 @@ areas:
   - family
   - civil-realestate
   - corporate
-photo: 
+photo: /images/lawyers/park-junyong.webp
 education:
   - 한양대학교 법학전문대학원
   - 포항공과대학교 대학원

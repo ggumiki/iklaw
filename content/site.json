@@ -1,9 +1,12 @@
 {
   "name": "법무법인 서상",
-  "alternateNames": ["서상", "Seosang Law Firm", "법무법인 서상 남양주분사무소"],
-  "brandMark": "서상",
+  "alternateNames": [
+    "서상",
+    "Seosang Law Firm",
+    "법무법인 서상 남양주분사무소"
+  ],
   "tagline": "남양주·서울·인천 변호사",
-  "url": "https://www.ssnyj.co.kr",
+  "url": "https://www.iklaw.kr",
   "description": "법무법인 서상은 2011년 개업해 2017년 법인으로 전환한 법무법인으로, 서울 서초 주사무소와 남양주(다산신도시)·인천 분사무소에서 민사·부동산, 형사, 이혼·가사, 기업, 행정, 공공조달 사건을 맡고 있습니다.",
   "heroPlace": "의정부지방법원 남양주지원 앞, 다산 중앙법조타워",
   "heroTitle": "달콤한 희망 대신, 솔직한 답을 드립니다.",
@@ -22,9 +25,15 @@
   "adResponsible": "박준용",
   "businessNumber": "615-85-37378",
   "foundingDate": "2011-11",
-  "logo": "/favicon.svg",
+  "logo": "/images/logo-navy.png",
   "ogImage": "/images/og.png",
-  "areaServed": ["남양주시", "구리시", "서울특별시", "인천광역시", "경기도"],
+  "areaServed": [
+    "남양주시",
+    "구리시",
+    "서울특별시",
+    "인천광역시",
+    "경기도"
+  ],
   "sameAs": [],
   "verification": {
     "naver": "",
@@ -44,9 +53,14 @@
       "postalCode": "",
       "note": "의정부지방법원 남양주지원 인근",
       "directions": "의정부지방법원 남양주지원 가까이에 있는 중앙법조타워 3층입니다.",
-      "areaServed": ["남양주시", "구리시", "가평군"],
+      "areaServed": [
+        "남양주시",
+        "구리시",
+        "가평군"
+      ],
       "lat": "",
-      "lng": ""
+      "lng": "",
+      "image": "/images/office/map-namyangju.webp"
     },
     {
       "id": "seoul",
@@ -59,7 +73,9 @@
       "postalCode": "",
       "note": "",
       "directions": "",
-      "areaServed": ["서울특별시"],
+      "areaServed": [
+        "서울특별시"
+      ],
       "lat": "",
       "lng": ""
     },
@@ -73,15 +89,65 @@
       "postalCode": "",
       "note": "",
       "directions": "",
-      "areaServed": ["인천광역시"],
+      "areaServed": [
+        "인천광역시"
+      ],
       "lat": "",
       "lng": ""
     }
   ],
   "history": [
-    { "when": "2011년 11월", "what": "법률사무소 서상 개업" },
-    { "when": "2017년 12월", "what": "법무법인 서상으로 법인 전환" },
-    { "when": "2011~2021년", "what": "서울 주사무소·인천 분사무소 확장 이전, 누적 법률상담 2만 건" },
-    { "when": "2021년 4월", "what": "남양주 분사무소 개소 (다산신도시)" }
-  ]
+    {
+      "when": "2011년 11월",
+      "what": "법률사무소 서상 개업"
+    },
+    {
+      "when": "2017년 12월",
+      "what": "법무법인 서상으로 법인 전환"
+    },
+    {
+      "when": "2011~2021년",
+      "what": "서울 주사무소·인천 분사무소 확장 이전, 누적 법률상담 2만 건"
+    },
+    {
+      "when": "2021년 4월",
+      "what": "남양주 분사무소 개소 (다산신도시)"
+    }
+  ],
+  "logoWhite": "/images/logo-white.png",
+  "signature": "/images/signature.png",
+  "officesMap": "/images/office/map-offices.webp",
+  "aboutPhotos": [
+    {
+      "src": "/images/office/meeting-room.webp",
+      "alt": "법무법인 서상 상담실"
+    },
+    {
+      "src": "/images/office/hallway.webp",
+      "alt": "법무법인 서상 사무소 복도"
+    },
+    {
+      "src": "/images/office/desk.webp",
+      "alt": "변호사 집무실 책상"
+    }
+  ],
+  "homeStory": {
+    "title": "서상이 일하는 방식",
+    "image": "/images/office/meeting-room.webp",
+    "imageAlt": "법무법인 서상 상담실",
+    "points": [
+      {
+        "title": "솔직하게 말씀드립니다",
+        "text": "기대만 키우는 말 대신, 불편하더라도 현실적인 해결책을 먼저 설명드립니다."
+      },
+      {
+        "title": "사람의 이야기를 듣습니다",
+        "text": "정형화된 대응이 아니라 각 사건의 맥락과 사정을 이해하는 데서 시작합니다."
+      },
+      {
+        "title": "끝까지 알려드립니다",
+        "text": "수임 뒤에도 단계마다 진행 상황을 공유하고 전략을 함께 점검합니다."
+      }
+    ]
+  }
 }

@@ -9,7 +9,7 @@ specialties: []
 areas:
   - civil-realestate
   - corporate
-photo: 
+photo: /images/lawyers/kim-sungha.webp
 education:
   - 2012 한양대학교 법학전문대학원 졸업
   - 2008 Fordham University School of Law (J.D. 과정 1학년 수료)
