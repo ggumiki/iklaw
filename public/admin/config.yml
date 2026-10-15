@@ -2,7 +2,7 @@
 # 아래 repo 값을 실제 GitHub 저장소 이름(계정/저장소)으로 바꿔 주세요.
 backend:
   name: github
-  repo: OWNER/seosang-site
+  repo: iklaw/seosang-site
   branch: main
 
 locale: ko
